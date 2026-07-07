@@ -1,0 +1,28 @@
+<div class="item-list-container">
+  <h2>Item List</h2>
+
+  <!-- Loading state -->
+  <div *ngIf="isLoading" class="status loading">
+    Loading items...
+  </div>
+
+  <!-- Error state -->
+  <div *ngIf="!isLoading && errorMessage" class="status error">
+    <p>{{ errorMessage }}</p>
+    <button type="button" (click)="loadItems()">Retry</button>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!isLoading && !errorMessage && items.length === 0" class="status empty">
+    No items found.
+  </div>
+
+  <!-- Success state -->
+  <ul *ngIf="!isLoading && !errorMessage && items.length > 0" class="item-list">
+    <li *ngFor="let item of items" class="item-card">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+      <span class="item-id">ID: {{ item.id }}</span>
+    </li>
+  </ul>
+</div>
