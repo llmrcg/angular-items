@@ -1,4 +1,4 @@
-# Item List App
+# Angular Component and a Service
 
 A basic Angular application that fetches a list of items from a service and displays them.
 
